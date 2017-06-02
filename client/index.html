@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+  <title>Place order</title>
+
+  <!-- Angular -->
+  <script src="http://connect.facebook.net/en_US/all.js"></script>
+  <script src="angular.js"></script>
+<!--  <script src="angular-route.js"></script> -->
+  <script src="http://maps.google.com/maps/api/js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
+  <!-- App specific -->
+  <script src="app.js"></script>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body ng-app="labTutorApp">
+<div ng-controller="StartCtrl">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav">
+       <li class="active"><a href="#">Home</a></li>
+        <li><a href="/">Logout</a></li>
+        <li><a href="/producten.html">Products</a></li>
+        <li><a href="#" ng-click="getproducts()">getproducts</a></li>
+
+        <li><a ng-click="login()">FB login</a></li>
+        <li><a href="#">Logged in as: {{ name }}</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Stripe -->
+
+  <h1>Bestel je boodschappen</h1>
+
+  <input ng-model="cardNumber" type="text" placeholder="Kaartnr" />
+  <input ng-model="cardCvc" type="text" placeholder="CVC" />
+  <input ng-model="cardExpMonth" type="text" placeholder="MM" />
+  <input ng-model="cardExpYear" type="text" placeholder="YYYY" />
+  <ul>
+    <li ng-click="subscribeGVA()">Choco</li>
+    <li ng-click="subscribeHLN()">kellogs</li>
+  </ul>
+
+  <h3>My Google Maps Demo</h3>
+
+<!-- <div ng-controller="MapController"> -->
+  <!--  <input id="pac-input" class="controls" type="text" placeholder="Search Box"> -->
+  <div id="map"></div>
+  <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
+    <a id="country_container" href="#" ng-click="openInfoWindow($event, marker)">
+      <label id="names" >{{marker.title}}</label></a>
+  </div>
+<div ng-repeat="productnr in productamount">
+  <img ng-src="{{ images[productnr] }}">
+  <button ng-click="addproduct()" class="btn btn-success">Add to cart</button>
+  <br>
+  <h3>fabricants:</h3>
+  <span ng-repeat="brandname in brand[productnr]">{{ brandname }}, </span>
+  <br>
+  <span> <h3>Ingredients:</h3> {{ ingredients[productnr] }} </span>
+</div>
+<!-- </div> -->
+</div>
+</body>
+</html>
