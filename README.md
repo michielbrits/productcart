@@ -1,6 +1,7 @@
 # productcart
 - npm install
 - npm start
+# uitleg
 surf naar localhost:5000
 druk op "getproducts" om producten uit de Api world.openfoodfacts.org te halen ( momenteel 2 hardcoded producten, maar het werkt op deze manier met zoveel producten als je wil )
 via stripe kan je op kellogs of choco aboneren ( betere implementatie had via paypal geweest, maar werkte niet direct )
