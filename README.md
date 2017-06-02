@@ -7,3 +7,5 @@ druk op "getproducts" om producten uit de Api world.openfoodfacts.org te halen (
 via stripe kan je op kellogs of choco aboneren ( betere implementatie had via paypal geweest, maar werkte niet direct )
 Google maps Api om de producten te laten leveren op een specifieke plaats, ik heb een paar hardcoded plaatsen eronder gezet.
 Oauth facebook login door in de navigatie op "FB login" te drukken
+
+Momenteel staat alles op een pagina, ik wou een navigatie implementeren met angular routes, maar er waren enkele problemen mee en ze zorgden er ook voor dat mijn apis braken.
